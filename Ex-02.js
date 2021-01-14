@@ -1,40 +1,64 @@
-let STR = "2+57-1+5";
+let STR = "2-2*4*55-6*2";//"2+2*4*55+6*2";
 
 function equation(str){
-    
+    //return eval(str);
     for(let i = 0;i<str.length;i++){
-        let split = str.split('');
-        
+        split = str.split('');
+        if(split[i] == "*"){
+            console.log(str);
+            let des = i;
+            let leftO = '';
+            let rightO = '';
+            let leftpos;
+            let rightpos;
+            let mutiresul;
+            for(;;){//find left number of *
+                if(!parseInt(split[des-1])){
+                    leftpos = des;
+                    break;
+                }
+                else{
+                    des = des-1;
+                    leftO = split[des] + leftO;
+                }
+            }
+            des = i;
+            for(;;){//find right number of *
+                if(!parseInt(split[des+1])){
+                    rightpos = des;
+                    break;
+                }
+                else{
+                    des = des+1;
+                    rightO = rightO + split[des];
+                }
+            }
+            console.log(`${leftO} * ${rightO}`);
+            let leftstr = str.substring(0,leftpos);
+            let rightstr = str.substring(rightpos+1,str.length);
+            mutiresul = parseInt(leftO) * parseInt(rightO);
+            str = leftstr + mutiresul + rightstr;
+            i = leftpos;///////**** 
+        }
     }
-
-
-
-
-
-
-
-
-
-
+    console.log(str);
     let operator = '';
     let realnum1 = '';
     let realnum2 = '';
     let Length = str.length;
     for(let i = 0;i<Length;i++){
         let charat0 = str.charAt(0);
-        let isnum = parseInt(charat0)
-        if(!isnum && i === 0){ //first char in string not number
+        let isnum = parseInt(charat0);
+        if( (!isnum && i === 0) && !(isnum === 0)){ //first char in string is not number
             return "ERROR! is not expression";
         }
-        
-        if(isnum){//is num
+        if(isnum || isnum === 0){//is num
             if(operator === '' && realnum2 === ''){
                 realnum1 = realnum1 + charat0;
             }
             else{
                 realnum2 = realnum2 + charat0;
-                if(!parseInt(str.charAt(1))){
-                    //////
+                if(!parseInt(str.charAt(1)) && !(parseInt(str.charAt(1)) === 0)){
                     if(operator == "+"){
                         let sum = parseInt(realnum1) + parseInt(realnum2);
                         realnum1 = sum;
@@ -47,7 +71,6 @@ function equation(str){
                         operator = '';
                         realnum2 = '';
                     }
-                    //////
                 }
             }
         }
@@ -67,4 +90,3 @@ function equation(str){
 }
 
 console.log(equation(STR));
-//console.log(STR.length);
