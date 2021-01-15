@@ -1,6 +1,4 @@
 function equation(str){
-    //return eval(str);//so easy 555
-
     //For check This is expression?
     for(let i = 0;i<str.length;i++){
         let isnum = parseInt(str.charAt(i));
