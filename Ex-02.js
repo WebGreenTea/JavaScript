@@ -66,7 +66,7 @@ function equation(str){
             }
             else{//is number right of operator
                 realnum2 = realnum2 + charat0;
-                if(!parseInt(str.charAt(1)) && !(parseInt(str.charAt(1)) === 0)){
+                if(!parseInt(str.charAt(1)) && !(parseInt(str.charAt(1)) === 0)){//if have left,right operand and 1 operator Ready to calculate
                     if(operator == "+"){
                         let sum = parseInt(realnum1) + parseInt(realnum2);
                         realnum1 = sum;
