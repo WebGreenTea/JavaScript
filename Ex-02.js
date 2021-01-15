@@ -86,7 +86,6 @@ function equation(str){
         str = str.substring(1);
     }
     return realnum1;
-
 }
 
 console.log(equation("1+1"));
