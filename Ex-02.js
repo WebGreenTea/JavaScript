@@ -5,6 +5,10 @@ function equation(str){
         if(!isnum && !(isnum === 0) && !((str.charAt(i) == "+") || (str.charAt(i) == "-") || (str.charAt(i) == "*")) ){
             return "ERROR! is not expression";
         }
+        //check first and last
+        else if((!(parseInt(str.charAt(str.length-1))) && !((parseInt(str.charAt(str.length-1))) === 0)) || !(parseInt(str.charAt(0))) && !((parseInt(str.charAt(0))) === 0)){
+            return "ERROR! is not expression";
+        }
     }
 
     //For calculate * first
@@ -87,10 +91,9 @@ function equation(str){
     }
     return realnum1;
 }
-
 console.log(equation("1+1"));
 console.log(equation("7*4-2"));
 console.log(equation("1+1+1+1+1"));
 //For test
-//let STR = "50000-20*40*55+6*2";
+//let STR = "50000-20*40*55+6*20";
 //console.log(equation(STR));
