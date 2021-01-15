@@ -91,6 +91,10 @@ function equation(str){
 
 }
 
+console.log(equation("1+1"));
+console.log(equation("7*4-2"));
+console.log(equation("1+1+1+1+1"));
+
 //For test
-let STR = "50000-20*40*55-6*2";
-console.log(equation(STR));
+//let STR = "50000-20*40*55-6*2";
+//console.log(equation(STR));
