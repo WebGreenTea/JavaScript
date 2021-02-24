@@ -5,8 +5,5 @@ console.log(numberSplit(11));
 console.log(numberSplit(-9));
 
 function numberSplit(num){
-    /*if(num%2 == 0){
-        return [num/2,num/2];
-    }*/
     return [Math.floor(num/2),Math.ceil(num/2)]
 }
